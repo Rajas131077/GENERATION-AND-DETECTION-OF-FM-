@@ -58,12 +58,52 @@ Save the file with an appropriate name.
 Execute the program.
 If any errors occur, debug and re-execute the code.
 Verify the generated waveforms using plots and compare with the model waveform.
+PROGRAM:
+
+```
+Ac = 7.9;
+Am = 15.8;
+Fm = 306;
+Fc = 3060;
+Fs = 30600;
+B  =  3.5; 
+T = 0:1/Fs:2/Fm; 
+ 
+
+// Message signal
+em = Am * cos(2*%pi*Fm*T);
+subplot(3,1,1);
+plot(T, em);
+xtitle("Message Signal");
+xgrid();
+
+// Carrier signal
+ec = Ac * cos(2*%pi*Fc*T);
+subplot(3,1,2);
+plot(T, ec);
+xtitle("Carrier Signal");
+xgrid();
+// FM signal
+efm = Ac * cos( (2*%pi*Fc*T) + (B * sin(2*%pi*Fm*T)) );
+subplot(3,1,3);
+plot(T, efm);
+xtitle("FM Signal");
+xgrid();
+```
+
+
 MODEL GRAPH
+
+<img width="1919" height="1199" alt="image" src="https://github.com/user-attachments/assets/229c7a66-db7e-4fec-928c-9f325fcddc57" />
 
 
 
 TABULATION
+
+<img width="470" height="851" alt="image" src="https://github.com/user-attachments/assets/c652a287-94f9-4f5e-9e1a-ca6a2a872c19" />
+
 		
-CALCULATIONS
 
 RESULT
+
+Thus the frequency modulation and demodulation
